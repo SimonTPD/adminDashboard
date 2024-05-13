@@ -29,17 +29,26 @@ time, mark, audio, video {
     --min-project-box-width: 300px;
 }
 
-/*
 @font-face {
-    font-family: "kaushanscript-regular";
+    font-family: "ABZ-regular";
     src:
-        url("./font/kaushanscript-regular-webfont.woff2") format("woff2"), 
-        url("./font/kaushanscript-regular-webfont.woff") format("woff");
+        url("./font/ABeeZee-Regular.woff2") format("woff2"), 
+        url("./font/ABeeZee-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
-*/
 
+body{
+    font-family: ABZ-regular, system-ui, sans-serif;
+}
+
+.sidebar-logo{
+    width: 30px;
+    height: 30px;
+
+    display: inline-block;
+    fill: white;
+}
 /******************************************************/
 /*Container*/
 /******************************************************/
@@ -56,7 +65,10 @@ div.container{
 /******************************************************/
 div.sidebar{
     grid-area: 1 / 1 / 3 / 2;
+
     padding: 20px;
+
+    background-color: #259dcc;
 }
 
 div.sidebar > ul{
@@ -65,33 +77,122 @@ div.sidebar > ul{
     row-gap: 20px;
 }
 
+div.sidebar > ul > li{
+    list-style-type: none;
+}
+
 div.sidebar > ul > li:first-child,
 div.sidebar > ul > li:nth-child(7){
     margin-bottom: 5vh;
 }
 
-div.sidebar > ul > li{
-    list-style-type: none;
+div.sidebar > ul > li:nth-child(n + 2){
+    margin-left: 10px;
 }
 
-.sidebar-logo{
+div.sidebar > ul > li > a{
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+}
+
+div.sidebar > ul > li > a > p{
     display: inline-block;
+
+    margin-left: 20px;
+
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bolder;
 }
 
+div.sidebar > ul > li:first-child > a >  p{
+    margin-left: 10px;
+
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bolder;
+}
+
+div.sidebar > ul > li:first-child > a > svg{
+    width: 50px;
+    height: 50px;
+}
 /******************************************************/
 /*Header*/
 /******************************************************/
 div.header{
     display: grid;
+    row-gap: 12px;
 
     padding: 24px;
+
+    background-color: white;
+
+    box-shadow: 0px 4px 4px rgb(41, 40, 40);
+
+    position: relative;
 }
 
+/*First row*/
 div.header > div.header-first-row{
     display: grid;
-    grid-template-columns: 7fr repeat(3, 1fr);
+    grid-template-columns: 8fr 0.5fr 1fr 1.5fr;
+    gap: 24px;
+    align-items: center;
+    justify-items: center;
 }
 
+div.header > div.header-first-row > label{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    justify-self: stretch;
+
+    margin-right: 10vw;
+}
+
+div.header > div.header-first-row  svg{
+    width: 25px;
+    height: 25px;
+
+    fill: black;
+}
+
+div.header > div.header-first-row > label > input{
+    appearance: none;
+
+    height: 36px;
+    width: 100%;
+
+    padding: 8px;
+
+    font: ABZ-regular;
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 18px;
+
+    background-color: #eee;
+}
+
+div.header > div.header-first-row > img{
+    width: 60px;
+    height: 60px;
+
+    border: 4px solid #222;
+    border-radius: 50%;
+}
+
+div.header > div.header-first-row > p{
+    font-size: 1.2rem;
+
+}
+
+
+/*Second Row*/
 div.header > div.header-second-row{
     display: grid;
     grid-template-columns: 6fr repeat(3, 1.33fr);
@@ -100,12 +201,58 @@ div.header > div.header-second-row{
 div.header > div.header-second-row > div{
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1.5fr 8.5fr;
+    grid-template-columns: 1fr 9fr;
+    column-gap: 12px;
+    justify-items: start;
 }
 
-div.header > div.header-second-row > div > div{
+div.header > div.header-second-row > div > img{
     grid-area: 1 / 1 / 3 / 2;
+
+    width: 80px;
+    height: 80px;
+
+    border: 4px solid #222;
+    border-radius: 50%;
 }
+
+div.header > div.header-second-row > div > p:first-of-type{
+    font-size: 0.75rem;
+    font-weight: bold;
+    
+    align-self: end;
+}
+
+div.header > div.header-second-row > div > p:nth-of-type(2){
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    align-self: start;
+}
+
+div.header > div.header-second-row > button{
+    width: 100px;
+    height: 48px;
+
+    border: none;
+    border-radius: 24px;
+    background-color: #259dcc;
+
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+
+    align-self: center;
+}
+
+div.header > div.header-second-row > button:hover{
+    box-shadow: 2px 2px 4px grey;
+}
+
+div.header > div.header-second-row > button:active{
+    box-shadow: inset 0px 0px 8px #373f2f;
+}
+
 /******************************************************/
 /*Main*/
 /******************************************************/
@@ -114,6 +261,8 @@ div.main{
     grid-template: 6fr 4fr / 7fr 3fr;
 
     padding: 24px 12px;
+
+    background-color: #f3f3f3;
 }
 
 /*Projects*/
@@ -153,8 +302,3 @@ div.main > div.main-trending > div.box > div > div{
 /******************************************************/
 /*Temp*/
 /******************************************************/
-.sidebar,
-.header,
-.main{
-    border: 1px solid black;
-}
