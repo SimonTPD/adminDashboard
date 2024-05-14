@@ -42,12 +42,30 @@ body{
     font-family: ABZ-regular, system-ui, sans-serif;
 }
 
+h1{
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
 .sidebar-logo{
     width: 30px;
     height: 30px;
 
     display: inline-block;
     fill: white;
+}
+
+.box{
+    padding: 24px 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: white;
+
+    box-shadow: 4px 4px 4px rgb(97, 97, 97);
 }
 /******************************************************/
 /*Container*/
@@ -56,7 +74,7 @@ div.container{
     height: 100vh;
 
     display: grid;
-    grid-template: 1fr 5fr / 1fr 4fr;
+    grid-template: 2fr 8fr / 2fr 8fr;
 }
 
 
@@ -126,7 +144,7 @@ div.header{
     display: grid;
     row-gap: 12px;
 
-    padding: 24px;
+    padding: 8px 16px;
 
     background-color: white;
 
@@ -179,10 +197,10 @@ div.header > div.header-first-row > label > input{
 }
 
 div.header > div.header-first-row > img{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 
-    border: 4px solid #222;
+    border: 2px solid #222;
     border-radius: 50%;
 }
 
@@ -195,13 +213,13 @@ div.header > div.header-first-row > p{
 /*Second Row*/
 div.header > div.header-second-row{
     display: grid;
-    grid-template-columns: 6fr repeat(3, 1.33fr);
+    grid-template-columns: 7fr repeat(3, 1fr);
 }
 
 div.header > div.header-second-row > div{
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 0.5fr 9.5fr;
     column-gap: 12px;
     justify-items: start;
 }
@@ -209,8 +227,8 @@ div.header > div.header-second-row > div{
 div.header > div.header-second-row > div > img{
     grid-area: 1 / 1 / 3 / 2;
 
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
 
     border: 4px solid #222;
     border-radius: 50%;
@@ -258,9 +276,12 @@ div.header > div.header-second-row > button:active{
 /******************************************************/
 div.main{
     display: grid;
-    grid-template: 6fr 4fr / 7fr 3fr;
+    grid-template: 5fr 5fr / 7.5fr 2.5fr;
+    row-gap: 36px;
+    column-gap: 24px;
+    align-items: start;
 
-    padding: 24px 12px;
+    padding: 24px;
 
     background-color: #f3f3f3;
 }
@@ -273,6 +294,26 @@ div.main > div.main-projects{
 div.main > div.main-projects > div.project-box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--min-project-box-width), 1fr));
+    gap: 24px;
+}
+
+div.main > div.main-projects > div.project-box-container > div.box{
+    border-left: 12px solid #e4d834;
+}
+
+div.main > div.main-projects > div.project-box-container > div.box > h2{
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    margin-bottom: 4px;
+}
+
+div.main > div.main-projects > div.project-box-container > div.box > p{
+    font-size: 1rem;
+    text-align: justify;
+    color: rgb(150, 149, 149);
+
+    margin-bottom: 50px;
 }
 
 div.main > div.main-projects > div.project-box-container > div.box > div.project-icon-row{
@@ -283,7 +324,32 @@ div.main > div.main-projects > div.project-box-container > div.box > div.project
     column-gap: 36px;
 }
 
+div.main > div.main-projects > div.project-box-container > div.box > div.project-icon-row > svg{
+    width: 25px;
+    height: 25px;
+}
+
 /*Announcements*/
+div.main > div.main-announcements > div.box > h2{
+    font-size: 1rem;
+    font-weight: bold;
+
+    margin-bottom: 4px;
+}
+
+div.main > div.main-announcements > div.box > p{
+    font-size: 0.9rem;
+    text-align: justify;
+    color: rgb(150, 149, 149);
+}
+
+div.main > div.main-announcements > div.box > p:nth-last-child(n + 2){
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+
+    border-bottom: 2px solid rgb(150, 149, 149);
+}
+
 
 /*Trending*/
 div.main > div.main-trending > div.box{
@@ -293,12 +359,31 @@ div.main > div.main-trending > div.box{
 div.main > div.main-trending > div.box > div{
     display: grid;
     grid-template: 1fr 1fr / 2fr 8fr;
+    row-gap: 4px;
 }
 
-div.main > div.main-trending > div.box > div > div{
+div.main > div.main-trending > div.box > div:nth-last-child(n + 2){
+    margin-bottom: 12px;
+}
+
+div.main > div.main-trending > div.box > div > img{
     grid-area: 1 / 1 / 3 / 2;
+
+    width: 40px;
+    height: 40px;
+
+    border: 2px solid #222;
+    border-radius: 50%;
 }
 
-/******************************************************/
-/*Temp*/
-/******************************************************/
+div.main > div.main-trending > div.box > div > p:first-of-type{
+    align-self: end;
+}
+
+div.main > div.main-trending > div.box > div > p:nth-of-type(2){
+    font-size: 0.9rem;
+    color: rgb(150, 149, 149);
+    
+    align-self: start;
+}
+
